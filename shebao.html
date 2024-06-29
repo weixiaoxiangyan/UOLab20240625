@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人社保计算软件</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        function calc() {
+            var sal = document.getElementById("salary").value;
+            var reg = /^[0-9]{4,5}$/;
+            if (!reg.test(sal)) {
+                document.getElementById("salary").value="必须是4-5位数字！"
+                document.getElementById("salary").style="color:red";
+                return;
+            }
+           salnum = parseInt(sal);//
+            ylgr = salnum * 0.08;
+            ylgs = salnum * 0.2;
+            document.getElementById("ylgr").innerText=ylgr;
+            document.getElementById("ylgs").innerText=ylgs;
+            gryb = salnum * 0.02;
+            gsyb = salnum * 0.06;
+            document.getElementById("gryb").innerText=gryb;
+            document.getElementById("gsyb").innerText=gsyb;
+            grsy = salnum * 0.005;
+            gssy = salnum * 0.015;
+            document.getElementById("grsy").innerText=grsy;
+            document.getElementById("gssy").innerText=gssy;
+            grgs = salnum * 0.1;
+            gsgs = salnum * 0.005;
+            document.getElementById("grgs").innerText=grgs;
+            document.getElementById("gsgs").innerText=gsgs;
+            grsy1 = salnum * 0.2;
+            gssy1 = salnum * 0.008;
+            document.getElementById("grsy1").innerText=grsy1;
+            document.getElementById("gssy1").innerText=gssy1;
+            grhj=ylgr+gryb+grsy+grgs+grsy1;
+            document.getElementById("grhj").innerText=grhj;
+            gshj=ylgs+gsyb+gssy+gsgs+gssy1;
+            document.getElementById("gshj").innerText=gshj;
+            sum=grhj+gshj;
+            document.getElementById("sum").innerText=sum;
+        }
+    </script>
+</head>
+<body>
+   <div class="container text-center">
+       <h1>个人社保计算软件-Web版</h1>
+       <table class="table table-bordered text-center">
+            <tr>
+                <td>工资</td>
+                <td colspan="3">
+                    <input onfocus="this.value='';this.style='color:black'" id="salary" type="text" class="form-control">
+                </td>
+                <td>
+                    <button onclick="calc()" class="btn btn-danger btn-block">计算</button>
+                </td>
+            </tr>
+           <tr class="bg-primary">
+               <td>险种</td>
+               <td>个人%</td>
+               <td>个人</td>
+               <td>公司%</td>
+               <td>公司</td>
+           </tr>
+           <tr>
+               <td>养老</td>
+               <td>8%</td>
+               <td id="ylgr"></td>
+               <td>20%</td>
+               <td id="ylgs"></td>
+           </tr>
+           <tr>
+               <td>医保</td>
+               <td>2%</td>
+               <td id="gryb"></td>
+               <td>6%</td>
+               <td id="gsyb"></td>
+           </tr>
+           <tr>
+               <td>失业</td>
+               <td>0.5%</td>
+               <td id="grsy"></td>
+               <td>1.5%</td>
+               <td id="gssy"></td>
+           </tr>
+           <tr>
+               <td>工伤</td>
+               <td>10%</td>
+               <td id="grgs"></td>
+               <td>0.5%</td>
+               <td id="gsgs"></td>
+           </tr>
+           <tr>
+               <td>生育</td>
+               <td>20%</td>
+               <td id="grsy1"></td>
+               <td>0.8%</td>
+               <td id="gssy1"></td>
+           </tr>
+           <tr>
+               <td>合计</td>
+               <td>个人合计</td>
+               <td id="grhj"></td>
+               <td>公司合计</td>
+               <td id="gshj"></td>
+           </tr>
+           <tr>
+               <td>总额</td>
+               <td id="sum" colspan="4" style="color:red;font-weight:bold;"></td>
+           </tr>
+       </table>
+   </div>
+</body>
+</html>

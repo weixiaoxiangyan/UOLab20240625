@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>维普毕业设计(论文)管理系统</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <style>
+        /*logo区域样式*/
+        .logoDiv {
+            margin-left: 200px; /*左侧外边距*/
+            margin-top: 30px;  /*顶部外边距*/
+            margin-bottom: 30px;
+        }
+        /*内容区域样式*/
+        .contentDiv {
+            width: 100%;
+            height: 750px;
+            background-color: #507DED;
+            position: absolute;   /*绝对定位*/
+            left: 0;          /*左侧是0，配合绝对定位*/
+            top: 75px;        /*顶部是75px，配合绝对定位*/
+        }
+        /*登录区域样式*/
+        .loginDiv {
+            width: 450px;
+            height: 450px;
+            background-color: white;
+            position: absolute;    /*绝对定位*/
+            top: 180px;   /*顶部是180px，配合绝对定位*/
+            left: 900px;     /*左侧是900px，配合绝对定位*/
+        }
+        /*标题样式*/
+        h3 {
+            margin-left: 50px;   /*左侧外边距*/
+        }
+        /*学校选择样式*/
+        select {
+            height: 45px;
+            width: 380px;
+            border-radius: 5px;   /*四个角弧度是5px*/
+            border: 1px solid lightgray;   /*边框样式*/
+            margin-left: 38px;
+            margin-top: 10px;
+            color: gray;
+        }
+        /*用户名和密码文本框样式*/
+        .inputText {
+            height: 45px;
+            width: 350px;
+            border-radius: 5px;
+            border: 1px solid lightgray;
+            margin-left: 38px;
+            margin-top: 20px;
+            background-color: #E8F0FE;
+            color: gray;
+            padding-left: 25px;
+        }
+        /*忘记密码样式*/
+        .ps {
+            margin-top: 20px;
+            font-size: 13px;
+            margin-left: 350px;
+        }
+        /*按钮样式*/
+        button {
+            height: 45px;
+            width: 380px;
+            border-radius: 5px;
+            border: 1px solid lightgray;
+            margin-left: 38px;
+            margin-top: 20px;
+            background-color: #507DED;
+            color: white;
+            font-size: 16px;
+            letter-spacing: 5px;  /*字间距是5px*/
+        }
+        /*接受协议样式*/
+        .agree {
+            font-size: 14px;
+            color: gray;
+            margin-left: 38px;
+            margin-top: 20px;
+        }
+        /*Font Awesome图标样式，用户图标*/
+        i {
+            position: absolute;
+            top:152px;
+            left:45px;
+            color:gray;
+        }
+        /*Font Awesome图标样式，密码锁图标*/
+        #lock{
+            position: absolute;
+            top:220px;
+            left:45px;
+        }
+    </style>
+</head>
+<body>
+<!-- logo区域  -->
+<div class="logoDiv">
+    <img src="images/logo2.png" width="380px">
+</div>
+<!--内容区域-->
+<div class="contentDiv">
+    <img src="images/first-01.png" width="1000px">
+</div>
+<!--登录区域-->
+<div class="loginDiv">
+    <h3 style="letter-spacing:2px">账号登录</h3>
+    <hr color="#507DED" width="100px" style="margin-left: 38px;margin-top: -10px;">
+    <select>
+        <option>请选择学校</option>
+        <option>中北大学</option>
+        <option>太原科技大学</option>
+        <option>北京理工大学</option>
+        <option>太原工业学院</option>
+        <option>山西传媒学院</option>
+    </select><br>
+    <i class="fa fa-user"></i><input class="inputText" type="text" placeholder="用户名"><br>
+    <i id="lock" class="fa fa-lock"></i><input class="inputText" type="password" placeholder="密码"><br>
+    <!-- 忘记密码-->
+    <div class="ps">
+        <a href="" style="text-decoration: none">忘记密码?</a>
+    </div>
+    <button>登录</button>
+    <!--接受协议-->
+    <div class="agree">
+        <input type="checkbox">我已阅读并同意
+        <a href="" style="text-decoration: none;color:#3070F9">《维普毕业论文（设计）管理系统隐私政策》 《维普毕业论文（设计）管理系统使用协议》</a>
+
+    </div>
+
+</div>
+</body>
+</html>

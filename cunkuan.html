@@ -11,6 +11,26 @@
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="shortcut icon" href="images/logo.ico">
+    <script>
+        function cal() {
+            var sal = document.getElementById("salary").value;
+            var reg = /^[0-9]{4,5}$/;
+            if (!reg.test(sal)) {
+                document.getElementById("salary").value="必须是4-5位数字！"
+                document.getElementById("salary").style="color:red";
+                return false;
+            }
+            salnum = parseInt(sal);
+            var rate = parseFloat(document.getElementById("year").value);
+            var interest = salnum * rate;
+            var total = salnum + interest;
+
+            //toFixed()方法用于将数字格式化为固定小数位数的字符串。
+            //如果 interest 的值是 123.456，调用 interest.toFixed(2) 会返回 "123.46"（四舍五入到小数点后两位）。123 ---> 123.00
+            document.getElementById("sdlx").value = interest.toFixed(2);
+            document.getElementById("bxhj").value = total.toFixed(2);
+        }
+    </script>
 </head>
 <body>
 <div class="container">
@@ -19,28 +39,27 @@
     </div>
     <div class="form-group">
         <label style="color: #2494E8">存款金额</label>
-        <input placeholder="请输入存款金额" type="text" class="form-control">
+        <input placeholder="请输入存款金额" type="text" class="form-control" id="salary">
     </div>
     <div class="form-group">
         <label style="color: #2494E8">存款年限</label>
-        <select class="form-control">
-            <option>一年</option>
-            <option>二年</option>
-            <option>三年</option>
-            <option>四年</option>
-            <option>五年</option>
+        <select id="year" class="form-control">
+            <option value="0.0165">一年</option>
+            <option value="0.0215">二年</option>
+            <option value="0.026">三年</option>
+            <option value="0.0265">五年</option>
         </select>
     </div>
     <div class="form-group">
         <label style="color: #2494E8">所得利息</label>
-        <input type="text" class="form-control" readonly>
+        <input type="text" class="form-control" id="sdlx" readonly>
     </div>
     <div class="form-group">
         <label style="color: #2494E8">本息合计</label>
-        <input type="text" class="form-control"readonly>
+        <input type="text" class="form-control" id="bxhj" readonly>
     </div>
     <div>
-        <button class="btn btn-danger btn-block">计算</button>
+        <button class="btn btn-danger btn-block" onclick="cal()">计算</button>
     </div>
 </div>
 </body>
